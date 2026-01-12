@@ -10,7 +10,6 @@ export const CameraMode = {
 export const AppMode = {
   APPEARANCE: "APPEARANCE",
   CHAT: "CHAT",
-  MINT: "MINT",
 }
 
 export const ViewContext = React.createContext()
