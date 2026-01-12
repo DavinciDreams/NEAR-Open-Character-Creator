@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="HandheldFriendly" content="true" />
     <title>Character Studio</title>
+    <!-- Content Security Policy to prevent XSS attacks -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https://voice.webaverse.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.github.io https://*.github.com; font-src 'self' data:; connect-src 'self' https://voice.webaverse.com; frame-src 'self';" />
 
 
   </head>
@@ -15,10 +17,7 @@
     <canvas id="editor-scene" style="position: fixed; z-index: 0; top: 0; left: 0;" width="100%" height="100%"></canvas>
 
     <link rel="stylesheet" href="/public/style.css" />
-    <script type="module">
-      import { Buffer } from "buffer";
-      window.Buffer = Buffer;
-    </script>
+    <!-- Removed Buffer import and assignment: not valid in browser context -->
     <script type="module" src="/src/Main.jsx"></script>
     <script>const global = globalThis;</script>
   </body>
