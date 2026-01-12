@@ -32,7 +32,10 @@ export default function CustomButton(props) {
     if (icon) {
       getSVG(icon).then((res) => {
         if (svgRef.current) {
-          svgRef.current.innerHTML = ""
+          // Replace innerHTML with removeChild loop to avoid XSS vulnerabilities
+          while (svgRef.current.firstChild) {
+            svgRef.current.removeChild(svgRef.current.firstChild)
+          }
           if (res) {
             res.classList.add(styles.icon)
             svgRef.current.append(res)
