@@ -21,7 +21,6 @@ import ARButton from "./ARButton"
 import Background from "./Background"
 import ChatButton from "./ChatButton"
 import { UserMenu } from "./UserMenu"
-import MintPopup from "./MintPopup"
 
 import Logo from "./Logo"
 
