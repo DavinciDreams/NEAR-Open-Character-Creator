@@ -4,7 +4,31 @@
     top: 1.5em;
 }
 
-.logo img {
-    width: 5em;
+/* Mobile Large (481px+) */
+@media (min-width: 481px) {
+  .logo {
+    left: 1.5em;
+    top: 1.5em;
+  }
+}
 
+/* Tablet (641px+) */
+@media (min-width: 641px) {
+  .logo {
+    left: 1.5em;
+    top: 1.5em;
+  }
+}
+
+/* Desktop (1025px+) */
+@media (min-width: 1025px) {
+  .logo {
+    left: 1.5em;
+    top: 1.5em;
+  }
+}
+
+.logo img {
+    width: min(5em, 15vw);
+    max-width: 5em;
 }

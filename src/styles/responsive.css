@@ -1,0 +1,98 @@
+/* NEAR Open Character Creator - Responsive Utility CSS */
+
+/* Container Queries - Future Enhancement */
+@supports (container-type: inline-size) {
+    .responsive-container {
+        container-type: inline-size;
+    }
+}
+
+/* Spacing Scale */
+.spacing-xs { padding: 0.5rem; }
+.spacing-sm { padding: 1rem; }
+.spacing-md { padding: 1.5rem; }
+.spacing-lg { padding: 2rem; }
+.spacing-xl { padding: 3rem; }
+
+/* Flexbox Utilities */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grid Utilities */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+/* Text Utilities */
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Touch Target Utilities */
+.touch-target-min {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.touch-target-lg {
+    min-width: 48px;
+    min-height: 48px;
+}
+
+/* Spacing between touch targets */
+.touch-group > * + * {
+    margin-left: 8px;
+}
+
+/* Visibility Utilities */
+.mobile-only { display: block; }
+.tablet-only { display: none; }
+.desktop-only { display: none; }
+
+@media (min-width: 641px) {
+    .mobile-only { display: none; }
+    .tablet-only { display: block; }
+}
+
+@media (min-width: 1025px) {
+    .tablet-only { display: none; }
+    .desktop-only { display: block; }
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+    outline: 2px solid aqua;
+    outline-offset: 2px;
+}
+
+/* Skip Link for Keyboard Users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: rgb(51, 77, 97);
+    color: white;
+    padding: 8px;
+    z-index: 9999;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}

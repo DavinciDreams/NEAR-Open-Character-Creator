@@ -1,8 +1,8 @@
 .StyledBackButton {
     background: url('/ui/backButton_white.png') center center no-repeat;
     background-size: 45% 55%;
-    height: 4em;
-    width: 4em;
+    width: 44px;
+    height: 44px;
     backdrop-filter: blur(22.5px);
     border-radius: 5px;
     box-sizing: border-box;
@@ -10,10 +10,41 @@
     user-select: none;
     position: absolute;
     z-index: 100000;
+    left: 10px;
+    top: 10px;
+    border: 2px solid #7aacba;
+}
+
+/* Mobile Large (481px+) */
+@media (min-width: 481px) {
+  .StyledBackButton {
+    width: 50px;
+    height: 50px;
+    left: 15px;
+    top: 15px;
+  }
+}
+
+/* Tablet (641px+) */
+@media (min-width: 641px) {
+  .StyledBackButton {
+    width: 56px;
+    height: 56px;
+    left: 20px;
+    top: 20px;
+  }
+}
+
+/* Desktop (1025px+) */
+@media (min-width: 1025px) {
+  .StyledBackButton {
+    width: 4em;
+    height: 4em;
     margin-left: 2em;
     margin-top: 2em;
-    border: 2px solid #7aacba;
-
+    left: auto;
+    top: auto;
+  }
 }
 
 .StyledBackButton:hover {

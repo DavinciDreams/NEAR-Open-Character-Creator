@@ -1,16 +1,52 @@
 .SelectorContainerPos {
-  position: absolute;
-  top: 20vh;
-  right: 2em;
-  height: 60vh;
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 50vh;
   overflow-y: scroll;
-  overflow-x: none;
-  border: 1px solid  #7aacba;
-  border-radius : 5px;
+  overflow-x: hidden;
+  border: 1px solid #7aacba;
+  border-radius: 5px 5px 0 0;
   backdrop-filter: blur(22.5px);
-  transform: perspective(70vh) rotateY(-5deg);
-  z-index:1000;
+  transform: none;
+  z-index: 1000;
   cursor: pointer;
+}
+
+/* Mobile Large (481px+) */
+@media (min-width: 481px) {
+  .SelectorContainerPos {
+    height: 55vh;
+    right: 5%;
+    left: 5%;
+    width: 90%;
+  }
+}
+
+/* Tablet (641px+) */
+@media (min-width: 641px) {
+  .SelectorContainerPos {
+    top: 15vh;
+    bottom: auto;
+    right: 1em;
+    left: auto;
+    height: 60vh;
+    width: 40%;
+    transform: perspective(50vh) rotateY(-2deg);
+    border-radius: 5px;
+  }
+}
+
+/* Desktop (1025px+) */
+@media (min-width: 1025px) {
+  .SelectorContainerPos {
+    top: 20vh;
+    right: 2em;
+    width: auto;
+    transform: perspective(70vh) rotateY(-5deg);
+  }
 }
 
 .selector-container {

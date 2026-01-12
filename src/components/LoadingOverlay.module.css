@@ -38,8 +38,8 @@
     }
   }
   .loading-spinner {
-    width: 5em;
-    height: 5em;
+    width: min(5em, 20vw);
+    height: min(5em, 20vw);
 
     border: 5px solid #430086; /* Light grey */
     border-top: 5px solid #2c0026; /* Black */

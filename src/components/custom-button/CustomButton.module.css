@@ -3,6 +3,8 @@
     position: relative;
     z-index: 1;
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .iconButtonWrap .buttonBackground {
@@ -98,6 +100,8 @@
     margin: 0;
     display: inline-block;
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .buttonWrap .icon {
@@ -131,6 +135,10 @@
     color: #000000;
     padding: 8px 14px 6px 14px !important;
     text-transform: uppercase !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .buttonWrap.dark .innerWrap {

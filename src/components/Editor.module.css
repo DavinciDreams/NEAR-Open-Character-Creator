@@ -1,16 +1,48 @@
 .SideMenu {
-    position: absolute;
-    left: 2em;
-    top: 20vh;
-    height: 39em;
+    position: fixed;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    height: 50vh;
+    width: 60px;
     border: 2px solid #7aacba;
-    border-radius : 5px;
-    backdrop-filter: blur(22.5px); 
-    box-sizing : border-box;
-    transform: perspective(70vh) rotateY(5deg);
+    border-radius: 5px 5px 0 0;
     backdrop-filter: blur(22.5px);
-    user-select : none;
-    z-index:1000;
+    box-sizing: border-box;
+    transform: none;
+    user-select: none;
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+/* Mobile Large (481px+) */
+@media (min-width: 481px) {
+    .SideMenu {
+        height: 55vh;
+        width: 80px;
+    }
+}
+
+/* Tablet (641px+) */
+@media (min-width: 641px) {
+    .SideMenu {
+        top: 15vh;
+        bottom: auto;
+        height: 60vh;
+        width: 100px;
+        transform: perspective(50vh) rotateY(2deg);
+        border-radius: 5px;
+    }
+}
+
+/* Desktop (1025px+) */
+@media (min-width: 1025px) {
+    .SideMenu {
+        left: 2em;
+        top: 20vh;
+        height: 39em;
+        transform: perspective(70vh) rotateY(5deg);
+    }
 }
 
 .LineDivision {
@@ -69,6 +101,8 @@
     opacity: 1;
     height: 2.5em;
     width: 2.5em;
+    min-height: 44px;
+    min-width: 44px;
     padding: 0em;
     display: flex;
     margin-left: auto;
@@ -80,6 +114,8 @@
     opacity: 1;
     height: 2.5em;
     width: 2.5em;
+    min-height: 44px;
+    min-width: 44px;
     padding: 0em;
     display: flex;
     margin-left: auto;
