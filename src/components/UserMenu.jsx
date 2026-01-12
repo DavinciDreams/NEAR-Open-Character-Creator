@@ -1,67 +1,25 @@
 import classnames from "classnames"
-import { ethers } from "ethers"
-import React, { useCallback, useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter"
-import { AccountContext } from "../context/AccountContext"
 import { SceneContext } from "../context/SceneContext"
 import { combine } from "../library/merge-geometry"
 import { getAvatarData } from "../library/utils"
 import VRMExporter from "../library/VRMExporter"
 import CustomButton from "./custom-button"
-import { AppMode, ViewContext } from "../context/ViewContext"
 
 import styles from "./UserMenu.module.css"
-import { providers, utils } from "near-api-js"
-import { useWalletSelector } from "../context/WalletSelectorContext"
 
 export const UserMenu = () => {
   const type = "_Gen1" // class type
 
-  const { currentAppMode, setCurrentAppMode } = useContext(ViewContext)
   const [showDownloadOptions, setShowDownloadOptions] = useState(false)
-  const { selector, modal, accountId } = useWalletSelector()
-
-  // const { ensName, setEnsName, connected, setConnected } =
-  //   useContext(AccountContext)
-  // const { activate, deactivate, account } = useWeb3React()
 
   const { skinColor, model, avatar } = useContext(SceneContext)
-
-  const [mintStatus, setMintStatus] = useState("")
-
-  // useEffect(() => {
-  //   if (account) {
-  //     _setAddress(account)
-  //     setConnected(true)
-  //   } else {
-  //     setConnected(false)
-  //     setMintStatus("Please connect your wallet.")
-  //   }
-  // }, [account])
-
-  // const _setAddress = async (address) => {
-  //   const { name } = await getAccountDetails(address)
-  //   console.log("ens", name)
-  //   setEnsName(name ? name.slice(0, 15) + "..." : "")
-  // }
-
-  const disconnectWallet = async () => {
-    const wallet = await selector.wallet()
-
-    wallet.signOut().catch((err) => {
-      console.log("Failed to sign out")
-      console.error(err)
-    })
-  }
 
   const handleDownload = () => {
     showDownloadOptions
       ? setShowDownloadOptions(false)
       : setShowDownloadOptions(true)
-  }
-
-  const connectWallet = () => {
-    modal.show()
   }
 
   async function download(
@@ -70,8 +28,8 @@ export const UserMenu = () => {
     format,
     atlasSize = 4096,
   ) {
-    // We can use the SaveAs() from file-saver, but as I reviewed a few solutions for saving files,
-    // this approach is more cross browser/version tested then the other solutions and doesn't require a plugin.
+    // We can use SaveAs() from file-saver, but as I reviewed a few solutions for saving files,
+    // this approach is more cross browser/version tested then other solutions and doesn't require a plugin.
     const link = document.createElement("a")
     link.style.display = "none"
     document.body.appendChild(link)
@@ -187,56 +145,7 @@ export const UserMenu = () => {
               </div>
             )}
           </li>
-          <li>
-            <CustomButton
-              type="icon"
-              theme="light"
-              icon="mint"
-              size={32}
-              onClick={() => {
-                setCurrentAppMode(AppMode.MINT)
-              }}
-            />
-          </li>
         </React.Fragment>
-        {accountId ? (
-          <React.Fragment>
-            <li>
-              <div className={styles.loggedInText}>
-                <div className={styles.chainName}>Testnet</div>
-                <div className={styles.walletAddress}>
-                  {accountId.slice(0, 4) + ".." + accountId.slice(-7)}
-                </div>
-              </div>
-              <CustomButton
-                type="login"
-                theme="dark"
-                icon="logout"
-                onClick={disconnectWallet}
-                size={28}
-                className={styles.loginButton}
-              />
-            </li>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <li>
-              <div className={styles.loggedOutText}>
-                Not
-                <br />
-                Connected
-              </div>
-              <CustomButton
-                type="login"
-                theme="dark"
-                icon="login"
-                onClick={connectWallet}
-                size={28}
-                className={styles.loginButton}
-              />
-            </li>
-          </React.Fragment>
-        )}
       </ul>
     </div>
   )
