@@ -1,2 +1,1 @@
-// export const NFT_CONTRACT_ID = "testnet";
-
+// export const NFT_CONTRACT_ID = "testnet"
