@@ -211,9 +211,6 @@ export default function App() {
           <ChatButton />
           <ARButton />
           <UserMenu />
-          {currentAppMode === AppMode.MINT && (
-            <MintPopup templateInfo={templateInfo} />
-          )}
           {currentAppMode === AppMode.CHAT && <ChatComponent />}
           {currentAppMode === AppMode.APPEARANCE && (
             <Editor
