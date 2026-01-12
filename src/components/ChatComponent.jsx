@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import DOMPurify from "dompurify";
 import { SceneContext } from "../context/SceneContext";
 import styles from "./ChatBox.module.css";
 
@@ -14,20 +15,18 @@ export default function ChatBox() {
         setInput(event.target.value);
     };
 
-
-    // if user presses ctrl c, clear the messages
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (event.ctrlKey && event.key === 'c') {
                 setMessages([]);
                 // spacebar
             }
-        }
+        };
         window.addEventListener('keydown', handleKeyDown);
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
-        }
-    }, [])
+        };
+    }, []);
 
     const handleSubmit = async (event) => {
         if(event.preventDefault) event.preventDefault();
@@ -50,7 +49,9 @@ export default function ChatBox() {
         setMessages(newMessages);
 
         try {
-            const url = encodeURI(`http://localhost:8001/spells/${spell_handler}`)
+            // TODO: Use environment variable for API endpoint
+            const apiUrl = import.meta.env.VITE_CHAT_API_URL || "http://localhost:8001";
+            const url = encodeURI(`${apiUrl}/spells/${spell_handler}`)
 
             const driveId = '1QnOliOAmerMUNuo2wXoH-YoainoSjZen'
 
@@ -91,6 +92,8 @@ export default function ChatBox() {
             });
         } catch (error) {
             console.error(error);
+            // Show user-friendly error message
+            setMessages([...newMessages, "System: Error processing your message. Please try again."]);
         }
     };
 
@@ -98,14 +101,26 @@ export default function ChatBox() {
         <div className={styles['chatBox']}>
             <div className={styles["messages"]}>
                 {messages.map((message, index) => (
-                    <div key={index}>{message}</div>
+                    <div key={index} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(message) }}></div>
                 ))}
             </div>
 
             <form className={styles['send']} onSubmit={handleSubmit}>
-                <input autoComplete="off" type="text" name="message" value={input} onInput={handleChange} onChange={handleChange} />
+                <input
+                    autoComplete="off"
+                    type="text"
+                    name="message"
+                    value={input}
+                    onInput={handleChange}
+                    onChange={handleChange}
+                    maxLength={500}
+                    pattern={'^[^<>"\'&]+$'}
+                    title="Message should not contain HTML tags or special characters"
+                />
                 <button className={styles["button"]} onSubmit={handleSubmit} type="submit">Send</button>
             </form>
         </div>
         );
-}
+    }
+
+// export default ChatBox; // (already exported at top)
