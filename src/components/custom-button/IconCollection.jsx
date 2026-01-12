@@ -80,10 +80,6 @@ export const IconCollection = [
     file: '/assets/icons/minus.svg',
   },
   {
-    name: 'mint',
-    file: '/assets/icons/mint.svg',
-  },
-  {
     name: 'download',
     file: '/assets/icons/download.svg',
   },
