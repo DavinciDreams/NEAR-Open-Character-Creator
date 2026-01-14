@@ -45,11 +45,11 @@
     "three": "^0.151.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-react-swc": "^3.0.0",
-    "eslint": "^8.30.0",
-    "eslint-plugin-no-inline-styles": "^1.0.5",
-    "eslint-plugin-react": "^7.31.11",
-    "prettier": "^2.3.2",
-    "vite": "^6.0.0"
+    "@vitejs/plugin-react-swc": "^3.4.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-no-inline-styles": "^1.1.0",
+    "eslint-plugin-react": "^7.33.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.0.12"
   }
 }

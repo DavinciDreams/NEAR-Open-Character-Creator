@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Drop Hunter",
+    "animationPath": "/3d/animations/drophunter/",
+    "offset": 0,
+    "traits": ["hunter", "agile"],
+    "modelPath": "/3d/models/drophunter.vrm"
+  },
+  {
+    "name": "Neurohacker",
+    "animationPath": "/3d/animations/neurohacker/",
+    "offset": 0,
+    "traits": ["hacker", "intelligent"],
+    "modelPath": "/3d/models/neurohacker.vrm"
+  }
+]
