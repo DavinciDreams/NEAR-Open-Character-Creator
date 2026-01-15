@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="HandheldFriendly" content="true" />
     <title>Character Studio</title>
 
@@ -16,8 +16,9 @@
 
     <link rel="stylesheet" href="/public/style.css" />
     <script type="module">
-      import { Buffer } from "buffer";
-      window.Buffer = Buffer;
+      // Buffer polyfill - no longer needed with newer Node.js versions
+      // import * as BufferModule from "buffer";
+      // window.Buffer = BufferModule.Buffer;
     </script>
     <script type="module" src="/src/Main.jsx"></script>
     <script>const global = globalThis;</script>

@@ -3,15 +3,9 @@ import React, { useEffect, useRef } from "react"
 import styles from "./CustomButton.module.css"
 import { IconCollection } from "./IconCollection"
 
-async function getSVG(iconName) {
+function getSVG(iconName) {
   const icon = IconCollection.find((item) => item.name === iconName)
-  return await fetch(icon.file)
-    .then((res) => res.text())
-    .then((res) => {
-      const parser = new DOMParser()
-      const svgDom = parser.parseFromString(res, "image/svg+xml")
-      return svgDom.firstElementChild
-    })
+  return icon?.content || null
 }
 
 export default function CustomButton(props) {
@@ -30,15 +24,19 @@ export default function CustomButton(props) {
 
   useEffect(() => {
     if (icon) {
-      getSVG(icon).then((res) => {
-        if (svgRef.current) {
-          svgRef.current.innerHTML = ""
-          if (res) {
-            res.classList.add(styles.icon)
-            svgRef.current.append(res)
-          }
+      const svgContent = getSVG(icon)
+      if (svgRef.current && svgContent) {
+        svgRef.current.innerHTML = ""
+        // Create a template element to parse the SVG string
+        const template = document.createElement('template')
+        template.innerHTML = svgContent
+        // Get the first element child (skip text nodes like whitespace)
+        const svgElement = template.content.firstElementChild
+        if (svgElement) {
+          svgElement.classList.add(styles.icon)
+          svgRef.current.appendChild(svgElement)
         }
-      })
+      }
     }
   }, [icon])
 

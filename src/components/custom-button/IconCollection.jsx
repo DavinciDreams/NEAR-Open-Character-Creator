@@ -1,126 +1,147 @@
+import backpackIcon from '/assets/icons/backpack.svg'
+import microphoneIcon from '/assets/icons/microphone.svg'
+import arrowRightIcon from '/assets/icons/arrowRight.svg'
+import arrowLeftIcon from '/assets/icons/arrowLeft.svg'
+import roomsIcon from '/assets/icons/rooms.svg'
+import scenesIcon from '/assets/icons/scenes.svg'
+import settingsIcon from '/assets/icons/settings.svg'
+import discordIcon from '/assets/icons/discord.svg'
+import closeIcon from '/assets/icons/close.svg'
+import plusIcon from '/assets/icons/plus.svg'
+import minusIcon from '/assets/icons/minus.svg'
+import mintIcon from '/assets/icons/mint.svg'
+import downloadIcon from '/assets/icons/download.svg'
+import classDropHunterIcon from '/assets/icons/class-drop-hunter.svg'
+import classEngineerIcon from '/assets/icons/class-engineer.svg'
+import classCustomIcon from '/assets/icons/class-custom.svg'
+import classNeuralHackerIcon from '/assets/icons/class-neural-hacker.svg'
+import classLiskWitchIcon from '/assets/icons/class-lisk-witch.svg'
+import classBruiserIcon from '/assets/icons/class-bruiser.svg'
+import classBeastPainterIcon from '/assets/icons/class-beast-painter.svg'
+
 export const IconCollection = [
   {
     name: 'backpack',
-    file: '/assets/icons/backpack.svg',
+    content: backpackIcon,
   },
   {
     name: 'microphone',
-    file: '/assets/icons/microphone.svg',
+    content: microphoneIcon,
   },
   {
     name: 'speechToText',
-    file: '/assets/icons/speechToText.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'arrowRight',
-    file: '/assets/icons/arrowRight.svg',
+    content: arrowRightIcon,
   },
   {
     name: 'arrowLeft',
-    file: '/assets/icons/arrowLeft.svg',
+    content: arrowLeftIcon,
   },
   {
     name: 'rooms',
-    file: '/assets/icons/rooms.svg',
+    content: roomsIcon,
   },
   {
     name: 'scenes',
-    file: '/assets/icons/scenes.svg',
+    content: scenesIcon,
   },
   {
     name: 'settings',
-    file: '/assets/icons/settings.svg',
+    content: settingsIcon,
   },
   {
     name: 'tokens',
-    file: '/assets/icons/tokens.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'voice',
-    file: '/assets/icons/voice.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'vr',
-    file: '/assets/icons/vr.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'discord',
-    file: '/assets/icons/discord.svg',
+    content: discordIcon,
   },
   {
     name: 'metamask',
-    file: '/assets/icons/metamask.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'close',
-    file: '/assets/icons/close.svg',
+    content: closeIcon,
   },
   {
     name: 'hide',
-    file: '/assets/icons/hide.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'map',
-    file: '/assets/icons/map.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'login',
-    file: '/assets/icons/login.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'logout',
-    file: '/assets/icons/logout.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'plus',
-    file: '/assets/icons/plus.svg',
+    content: plusIcon,
   },
   {
     name: 'minus',
-    file: '/assets/icons/minus.svg',
+    content: minusIcon,
   },
   {
     name: 'mint',
-    file: '/assets/icons/mint.svg',
+    content: mintIcon,
   },
   {
     name: 'download',
-    file: '/assets/icons/download.svg',
+    content: downloadIcon,
   },
   {
     name: 'classDropHunter',
-    file: '/assets/icons/class-drop-hunter.svg',
+    content: classDropHunterIcon,
   },
   {
     name: 'classEndineer',
-    file: '/assets/icons/class-engineer.svg',
+    content: classEngineerIcon,
   },
   {
     name: 'classCustom',
-    file: '/assets/icons/class-custom.svg',
+    content: classCustomIcon,
   },
   {
     name: 'classNeuralHacker',
-    file: '/assets/icons/class-neural-hacker.svg',
+    content: classNeuralHackerIcon,
   },
   {
     name: 'classLiskWitch',
-    file: '/assets/icons/class-lisk-witch.svg',
+    content: classLiskWitchIcon,
   },
   {
     name: 'classBruiser',
-    file: '/assets/icons/class-bruiser.svg',
+    content: classBruiserIcon,
   },
   {
     name: 'classBeastPainter',
-    file: '/assets/icons/class-beast-painter.svg',
+    content: classBeastPainterIcon,
   },
   {
     name: 'soundon',
-    file: '/assets/icons/soundon.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
   {
     name: 'soundoff',
-    file: '/assets/icons/soundoff.svg',
+    content: null, // This icon file doesn't exist in the public folder
   },
-];
+]

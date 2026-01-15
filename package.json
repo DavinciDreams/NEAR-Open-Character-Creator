@@ -7,7 +7,8 @@
     "serve": "vite preview",
     "lint": "npm run lint:js && npm run lint:prettier",
     "lint:js": "eslint --cache --ext .js,.jsx ./src",
-    "lint:prettier": "prettier --check \"**/*\" --end-of-line auto"
+    "lint:prettier": "prettier --check \"**/*\" --end-of-line auto",
+    "test": "vitest"
   },
   "dependencies": {
     "@ethersproject/providers": "^5.5.1",
@@ -59,6 +60,7 @@
     "eslint-plugin-no-inline-styles": "^1.0.5",
     "eslint-plugin-react": "^7.31.11",
     "prettier": "^2.3.2",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitest": "^0.34.0"
   }
 }
