@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter";
-import { Buffer } from "buffer";
 import html2canvas from "html2canvas";
 import VRMExporter from "./VRMExporter";
 import { CullHiddenFaces } from './cull-mesh.js';
@@ -107,10 +106,7 @@ async function getScreenShotByElementId(id) {
   const snapShotElement = document.getElementById(id);
   return await html2canvas(snapShotElement).then(async function (canvas) {
     var dataURL = canvas.toDataURL("image/jpeg", 1.0);
-    const base64Data = Buffer.from(
-      dataURL.replace(/^data:image\/\w+;base64,/, ""),
-      "base64"
-    );
+    const base64Data = Uint8Array.from(atob(dataURL.replace(/^data:image\/\w+;base64,/, "")), c => c.charCodeAt(0));
     const blob = new Blob([base64Data], { type: "image/jpeg" });
     return blob;
   });

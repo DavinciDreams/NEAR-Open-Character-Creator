@@ -175,6 +175,10 @@ export default function App() {
       asyncResolve()
       async function asyncResolve() {
         setTemplateInfo(manifest[index])
+        
+        // Dispose the old AnimationManager before creating a new one
+        animationManager?.dispose();
+        
         const animManager = await fetchAnimation(manifest[index])
         setAnimationManager(animManager)
 

@@ -149,10 +149,19 @@ export class AnimationManager{
   }
 
   dispose(){
+    // Cancel the requestAnimationFrame loop
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    
+    // Dispose animation controls
     this.animationControls.forEach(animControl => {
       animControl.dispose()
     });
-    //console.log("todo dispose animations")
+    
+    // Clear references
+    this.animationControls = [];
+    this.mainControl = null;
   }
 
   animRandomizer(yieldTime){
@@ -178,18 +187,24 @@ export class AnimationManager{
   }
 
   update(){
-    setInterval(() => {
-      if (this.mainControl){
-        if (this.weightIn < 1){ 
-          this.weightIn += 1/(30*interpolationTime);
-        }
-        else this.weightIn = 1;  
+    let lastTime = performance.now();
+    let animationFrameId = null;
     
-        if (this.weightOut > 0) this.weightOut -= 1/(30*interpolationTime);
+    const animate = (time) => {
+      const delta = (time - lastTime) / 1000; // Convert to seconds
+      lastTime = time;
+      
+      if (this.mainControl){
+        if (this.weightIn < 1){
+          this.weightIn += delta / interpolationTime;
+        }
+        else this.weightIn = 1;
+    
+        if (this.weightOut > 0) this.weightOut -= delta / interpolationTime;
         else this.weightOut = 0;
           
         this.animationControls.forEach(animControl => {
-          animControl.mixer.update(1/30);
+          animControl.mixer.update(delta);
     
           if (animControl.from != null){
             animControl.from.weight = this.weightOut;
@@ -199,6 +214,13 @@ export class AnimationManager{
           }
         });
       }
-    }, 1000/30);
+      
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    
+    animationFrameId = requestAnimationFrame(animate);
+    
+    // Store ID for cleanup if needed
+    this.animationFrameId = animationFrameId;
   }
 }
